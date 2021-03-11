@@ -408,13 +408,7 @@ let Kits = {
 		for (let i in MainParser.Inventory) {
 			if (!MainParser.Inventory.hasOwnProperty(i)) continue;
 
-			let itemIdx = Ret.findIndex(e => e["itemAssetName"] == MainParser.Inventory[i]["itemAssetName"]);
-			
-			if (itemIdx > -1) {
-				Ret[itemIdx]["inStock"] += MainParser.Inventory[i]["inStock"];
-			} else {
-				Ret.push(Object.assign({}, MainParser.Inventory[i]));
-			}
+			Ret.push(MainParser.Inventory[i]);
 		}
 
 		return Ret;
